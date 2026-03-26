@@ -12,6 +12,11 @@
 </head>
 <body>
     <h1>Demo JSP page</h1>
-    <h2>Hello T2410E</h2>
+    <h2>Hello <%= request.getAttribute("abc") %></h2>
+    <h2>Hello <%= request.getAttribute("xyz") %></h2>
+    <form action="" method="POST">
+        <input name="search" type="text" placeholder="Enter..."/>
+        <button type="submit">Search</button>
+    </form>
 </body>
 </html>
