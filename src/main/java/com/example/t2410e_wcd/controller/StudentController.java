@@ -1,5 +1,6 @@
 package com.example.t2410e_wcd.controller;
 
+import com.example.t2410e_wcd.utils.Db;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,19 +19,15 @@ import java.sql.Statement;
 public class StudentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // kết nối db
-        String connectionString = "jdbc:mysql://localhost:3306/t2410e";
-        String user = "root";
-        String password = "root"; // ""
-        String driver = "com.mysql.cj.jdbc.Driver";
+
         try {
-            Class.forName(driver);
-            Connection conn = DriverManager.getConnection(
-                    connectionString,user,password);
-            System.out.println("Connected!");
+
             // truy vấn lấy danh sách sinh viên
             String sql = "SELECT * FROM students";
-            Statement st = conn.createStatement();
+
+            Db db = Db.getInstance();
+            Statement st = db.getStatement();
+
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()){
                 System.out.println(rs.getString("name"));
