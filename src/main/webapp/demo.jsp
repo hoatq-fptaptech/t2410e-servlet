@@ -11,12 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Demo JSP page</h1>
-    <h2>Hello <%= request.getAttribute("abc") %></h2>
-    <h2>Hello <%= request.getAttribute("xyz") %></h2>
+    <h1>Create a student</h1>
     <form action="" method="POST">
-        <input name="search" type="text" placeholder="Enter..."/>
-        <button type="submit">Search</button>
+        <input name="name" type="text" placeholder="Enter name"/>
+        <input name="dob" type="date" placeholder="DOB"/>
+        <input name="mark" type="number" min="0" placeholder="Mark"/>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
